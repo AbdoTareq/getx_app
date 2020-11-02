@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_app/utility/router.dart';
+import 'package:getx_app/view/home_view.dart';
+import 'package:getx_app/view/login_view.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
@@ -10,7 +11,16 @@ void main() {
       title: 'GetX App',
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.rightToLeft,
-      getPages: Router.route,
+      getPages: [
+        GetPage(
+          name: '/loginView',
+          page: () => LoginView(),
+        ),
+        GetPage(
+          name: '/homeView',
+          page: () => HomeView(),
+        ),
+      ],
       initialRoute: '/loginView',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,

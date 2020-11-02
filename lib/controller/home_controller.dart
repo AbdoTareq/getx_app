@@ -19,10 +19,10 @@ class HomeController extends GetxController {
         () => Get.dialog(Center(child: CircularProgressIndicator()),
             barrierDismissible: false));
             
-    Request request = Request(url: urlUserList, body: null);
-    request.get().then((value) {
+    Request request = Request(url: urlUserList);
+    request.get().then((response) {
       UserListModel userListModel =
-          UserListModel.fromJson(json.decode(value.body));
+          UserListModel.fromJson(json.decode(response.body));
       userListData.value = userListModel.data;
       Get.back();
     }).catchError((onError) {
